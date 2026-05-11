@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Portfolio of Abhishek Bhaskar Kadam, Java Full Stack Developer with expertise in Spring Boot, Microservices, Kafka, and Angular."
+    />
+    <title>Abhishek Bhaskar Kadam | Java Full Stack Developer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="ambient ambient-one" aria-hidden="true"></div>
+    <div class="ambient ambient-two" aria-hidden="true"></div>
+    <div class="ambient ambient-three" aria-hidden="true"></div>
+
+    <header class="site-header">
+      <a class="brand" href="#top">
+        <span class="brand-dot"></span>
+        <span id="brand-name">Abhishek</span>
+      </a>
+      <nav class="site-nav" aria-label="Main navigation">
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="section hero reveal">
+        <div class="hero-copy panel">
+          <p class="eyebrow" id="headline">Java Full Stack Developer</p>
+          <h1 id="name">Abhishek Bhaskar Kadam</h1>
+          <p class="hero-tagline" id="tagline">
+            Building resilient enterprise software with Java, Spring Boot,
+            Kafka, and Angular.
+          </p>
+
+          <div class="hero-ctas">
+            <a class="btn btn-primary" id="resume-link" href="#">Download Resume</a>
+            <a class="btn btn-ghost" href="#contact">Hire Me</a>
+          </div>
+
+          <div class="social-row">
+            <a id="github-link" href="#" target="_blank" rel="noreferrer">GitHub</a>
+            <a id="linkedin-link" href="#" target="_blank" rel="noreferrer">LinkedIn</a>
+            <a id="leetcode-link" href="#" target="_blank" rel="noreferrer">LeetCode</a>
+          </div>
+        </div>
+
+        <aside class="hero-side panel">
+          <div class="avatar-wrap">
+            <img
+              id="profile-avatar"
+              src="https://avatars.githubusercontent.com/u/130990066?v=4"
+              alt="Portrait of Abhishek Bhaskar Kadam"
+            />
+          </div>
+          <p class="availability">Open to full-time Software Engineer opportunities</p>
+          <ul class="identity-list">
+            <li id="location">Pune, India</li>
+            <li>
+              <a id="email-link" href="mailto:abhishekkadam1061@gmail.com"
+                >abhishekkadam1061@gmail.com</a
+              >
+            </li>
+            <li id="phone-number">+91 8788276933</li>
+          </ul>
+        </aside>
+      </section>
+
+      <section class="section reveal">
+        <div class="metrics-grid" id="metrics-grid"></div>
+      </section>
+
+      <section class="section reveal" id="about">
+        <div class="section-heading">
+          <p class="eyebrow">About</p>
+          <h2>Engineer Focused on Scale, Stability, and Clean Delivery</h2>
+        </div>
+        <div class="about-grid">
+          <article class="panel">
+            <p id="summary-text"></p>
+          </article>
+          <aside class="panel">
+            <h3>Key Achievements</h3>
+            <ul class="list" id="achievement-list"></ul>
+          </aside>
+        </div>
+      </section>
+
+      <section class="section reveal" id="experience">
+        <div class="section-heading">
+          <p class="eyebrow">Experience</p>
+          <h2>Production-Critical Work in BFS and Full Stack Delivery</h2>
+        </div>
+        <div class="timeline" id="experience-timeline"></div>
+      </section>
+
+      <section class="section reveal" id="skills">
+        <div class="section-heading">
+          <p class="eyebrow">Tech Stack</p>
+          <h2>Current Skill Matrix</h2>
+        </div>
+        <div class="skills-grid" id="skills-grid"></div>
+      </section>
+
+      <section class="section reveal" id="projects">
+        <div class="section-heading">
+          <p class="eyebrow">Projects</p>
+          <h2>Featured Work and Live GitHub Repositories</h2>
+        </div>
+
+        <h3 class="subheading">Highlighted Projects</h3>
+        <div class="project-grid" id="featured-projects"></div>
+
+        <h3 class="subheading">Latest from GitHub</h3>
+        <div class="filter-row" id="repo-filters"></div>
+        <div class="project-grid" id="live-projects"></div>
+        <p class="status-line" id="repo-status" aria-live="polite"></p>
+      </section>
+
+      <section class="section reveal" id="certifications">
+        <div class="section-heading">
+          <p class="eyebrow">Credentials</p>
+          <h2>Certifications and Education</h2>
+        </div>
+        <div class="split-grid">
+          <article class="panel">
+            <h3>Certifications</h3>
+            <ul class="list" id="certification-list"></ul>
+          </article>
+          <article class="panel">
+            <h3>Education</h3>
+            <ul class="list" id="education-list"></ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="section reveal" id="contact">
+        <div class="contact-card panel">
+          <p class="eyebrow">Contact</p>
+          <h2>Let's Build Something Useful Together</h2>
+          <p class="contact-copy">
+            If your team is hiring for Java full stack, microservices, or
+            production support roles, I would love to connect.
+          </p>
+          <div class="contact-actions">
+            <a class="btn btn-primary" id="contact-mail-link" href="#">Send Email</a>
+            <a class="btn btn-ghost" id="contact-linkedin-link" href="#" target="_blank" rel="noreferrer"
+              >Message on LinkedIn</a
+            >
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>
+        <span id="footer-name">Abhishek Bhaskar Kadam</span> |
+        <span id="footer-year"></span>
+      </p>
+    </footer>
+
+    <script type="module" src="script.js"></script>
+  </body>
+</html>

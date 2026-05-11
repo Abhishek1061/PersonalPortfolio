@@ -1,0 +1,174 @@
+{
+  "name": "Abhishek Bhaskar Kadam",
+  "headline": "Java Full Stack Developer | Software Engineer",
+  "tagline": "Java full stack engineer focused on scalable BFS applications, microservices migration, and production reliability.",
+  "location": "Pune, India",
+  "phone": "+91 8788276933",
+  "email": "abhishekkadam1061@gmail.com",
+  "resumeFile": "assets/ABHISHEK_BHASKAR_KADAM_RESUME.docx",
+  "social": {
+    "github": "https://github.com/Abhishek1061",
+    "linkedin": "https://www.linkedin.com/in/abhishekkadam1061/",
+    "leetcode": "https://leetcode.com/abhishekkadam1061/"
+  },
+  "summary": "Java Full Stack Developer with 2+ years of experience designing and supporting enterprise-grade software using Java, Spring Boot, Spring MVC, REST APIs, microservices, Apache Kafka, and Angular. Hands-on across full SDLC: API design, refactoring, testing, CI/CD, container deployments, and production support in Agile teams.",
+  "experience": [
+    {
+      "title": "Software Engineer",
+      "company": "LTM",
+      "domain": "BFS Domain",
+      "startDate": "2024-06-12",
+      "endDate": "Present",
+      "bullets": [
+        "Built and maintained REST APIs using Java, Spring Boot, and Spring MVC for scalable enterprise services.",
+        "Contributed to monolith-to-microservices migration and executed event validation and regression checks.",
+        "Developed Apache Kafka producers for async communication with downstream systems.",
+        "Migrated legacy UI modules from JavaScript to Angular and improved UI performance by 25%.",
+        "Refactored 25+ Java classes and removed 2400+ lines of deprecated code without production impact.",
+        "Resolved production issues using ELK Stack, AppDynamics, Autosys, and MySQL across DEV, UAT, and PROD.",
+        "Improved quality through SonarQube fixes plus unit and integration test implementation.",
+        "Managed CI/CD and deployments via Jenkins, Docker, UrbanCode, Lightspeed, OpenShift, and Kubernetes.",
+        "Applied OOP design patterns and SOLID principles for maintainable service-layer architecture."
+      ]
+    }
+  ],
+  "achievements": [
+    "Migrated monolith components toward microservices architecture for better scalability and release speed.",
+    "Implemented Kafka producers that reduced integration latency and improved system responsiveness.",
+    "Drove large refactoring initiative by cleaning 25+ classes and removing 2400+ obsolete lines.",
+    "Boosted frontend responsiveness by 25% by moving legacy JavaScript screens to Angular.",
+    "Strengthened production stability through root-cause debugging and observability-driven fixes."
+  ],
+  "skills": {
+    "Programming": [
+      "Java",
+      "Python",
+      "SQL",
+      "JavaScript",
+      "TypeScript",
+      "XML"
+    ],
+    "Backend": [
+      "Spring Boot",
+      "Spring MVC",
+      "Spring Security",
+      "Spring Cloud",
+      "REST APIs",
+      "Microservices",
+      "Apache Kafka",
+      "Hibernate",
+      "JPA",
+      "JWT",
+      "SOAP"
+    ],
+    "Frontend": [
+      "Angular",
+      "HTML5",
+      "CSS3",
+      "Bootstrap"
+    ],
+    "Databases": [
+      "MySQL",
+      "SQLite"
+    ],
+    "DevOps and Cloud": [
+      "Docker",
+      "Kubernetes",
+      "Jenkins",
+      "OpenShift",
+      "CI/CD",
+      "JFrog Artifactory",
+      "UrbanCode"
+    ],
+    "Monitoring and Quality": [
+      "ELK Stack",
+      "AppDynamics",
+      "Postman",
+      "JUnit",
+      "SonarQube",
+      "Integration Testing",
+      "Unit Testing"
+    ],
+    "Workflow": [
+      "Git",
+      "GitHub",
+      "Bitbucket",
+      "Bash",
+      "Agile",
+      "Scrum",
+      "JIRA",
+      "Confluence"
+    ]
+  },
+  "projects": [
+    {
+      "name": "Event Management and Resource Allocation Platform",
+      "period": "August 2024",
+      "description": "Built a full-stack event scheduling platform with layered MVC architecture, secure JWT authentication, and optimized MySQL persistence.",
+      "tech": [
+        "Java",
+        "Spring Boot",
+        "Spring Data JPA",
+        "Hibernate",
+        "MySQL",
+        "JWT",
+        "Angular",
+        "Bootstrap"
+      ],
+      "repo": "https://github.com/Abhishek1061/Event_Management_And_Resource_Allocation_Application"
+    },
+    {
+      "name": "Bank Safe Application",
+      "period": "July 2024",
+      "description": "Created a secure banking workflow for account and transaction operations with role-based access control and tested REST endpoints.",
+      "tech": [
+        "Java",
+        "Spring Boot",
+        "Spring Security",
+        "JWT",
+        "MySQL",
+        "Angular",
+        "Postman"
+      ],
+      "repo": "https://github.com/Abhishek1061/Digital-Banking-Application"
+    },
+    {
+      "name": "Real-Time Customer Behavior Analytics Platform",
+      "period": "2026",
+      "description": "Repository focused on real-time behavior analytics concepts for streaming and customer engagement insights.",
+      "tech": [
+        "Analytics",
+        "Streaming",
+        "Data Pipeline",
+        "Real-Time Processing"
+      ],
+      "repo": "https://github.com/Abhishek1061/real-time-customer-behavior-analytics"
+    }
+  ],
+  "certifications": [
+    {
+      "title": "Oracle Certified Professional: Java SE 11 Developer",
+      "issuer": "Oracle",
+      "date": "October 2024"
+    },
+    {
+      "title": "Junior Java Full Stack Development Training",
+      "issuer": "Generation India",
+      "date": "April 2024"
+    }
+  ],
+  "education": [
+    {
+      "school": "Sinhgad College of Engineering, Pune",
+      "degree": "Bachelor of Engineering, Mechanical",
+      "score": "CGPA: 9.27",
+      "period": "January 2021 - July 2023"
+    },
+    {
+      "school": "Sanjivani K.B.P Polytechnic, Kopargaon",
+      "degree": "Diploma in Mechanical Engineering",
+      "score": "Percentage: 92.41",
+      "period": "July 2018 - November 2020"
+    }
+  ]
+}
