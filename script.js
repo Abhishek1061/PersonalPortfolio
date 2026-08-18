@@ -50,6 +50,7 @@ const el = {
   avatar: document.querySelector("#profile-avatar"),
   footerName: document.querySelector("#footer-name"),
   footerYear: document.querySelector("#footer-year"),
+  themeToggle: document.querySelector("#theme-toggle"),
   metricsGrid: document.querySelector("#metrics-grid"),
   achievementList: document.querySelector("#achievement-list"),
   timeline: document.querySelector("#experience-timeline"),
@@ -64,8 +65,54 @@ const el = {
 
 document.addEventListener("DOMContentLoaded", init);
 
+function applyTheme(isDark) {
+  document.body.classList.toggle("theme-dark", isDark);
+  document.documentElement.style.backgroundColor = isDark ? "#0b0f14" : "";
+  document.body.style.background = isDark
+    ? "linear-gradient(180deg, #0b0f14 0%, #111821 100%)"
+    : "";
+  document.body.style.color = isDark ? "#f2f7ff" : "";
+  document.body.style.setProperty("--bg", isDark ? "#0b0f14" : "#f6f9fc");
+  document.body.style.setProperty("--surface", isDark ? "#121821" : "#ffffff");
+  document.body.style.setProperty("--surface-soft", isDark ? "#171f2a" : "#f1f6fb");
+  document.body.style.setProperty("--text-strong", isDark ? "#f2f7ff" : "#10233f");
+  document.body.style.setProperty("--text", isDark ? "#dfe9f5" : "#29405f");
+  document.body.style.setProperty("--muted", isDark ? "#a7b4c4" : "#6e7f99");
+  document.body.style.setProperty("--primary", isDark ? "#7ecbff" : "#0b8fd9");
+  document.body.style.setProperty("--accent", isDark ? "#ffb46d" : "#f97316");
+  document.body.style.setProperty("--line", isDark ? "rgba(255,255,255,0.08)" : "#d8e4f0");
+}
+
+function setupThemeToggle() {
+  const savedTheme = localStorage.getItem("portfolio-theme");
+  const shouldUseDark = savedTheme === "dark";
+  applyTheme(shouldUseDark);
+
+  if (el.themeToggle) {
+    updateThemeButtonLabel();
+    el.themeToggle.addEventListener("click", () => {
+      const isDark = !document.body.classList.contains("theme-dark");
+      applyTheme(isDark);
+      localStorage.setItem("portfolio-theme", isDark ? "dark" : "light");
+      updateThemeButtonLabel();
+    });
+  }
+}
+
+function updateThemeButtonLabel() {
+  if (!el.themeToggle) return;
+
+  const isDark = document.body.classList.contains("theme-dark");
+  const icon = el.themeToggle.querySelector(".theme-toggle-icon");
+  const text = el.themeToggle.querySelector(".theme-toggle-text");
+
+  if (icon) icon.textContent = isDark ? "☀️" : "🌙";
+  if (text) text.textContent = isDark ? "Light" : "Dark";
+}
+
 async function init() {
   setFooterYear();
+  setupThemeToggle();
   setupRevealObserver();
 
   try {
