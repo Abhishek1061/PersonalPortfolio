@@ -434,7 +434,42 @@ function setupRevealObserver() {
     }
   );
 
-  document.querySelectorAll(".reveal").forEach((node) => observer.observe(node));
+  document.querySelectorAll(".reveal").forEach((node, index) => {
+    node.style.transitionDelay = `${index * 70}ms`;
+    observer.observe(node);
+  });
+
+  const navLinks = document.querySelectorAll(".site-nav a");
+  const sectionTargets = document.querySelectorAll("main section[id]");
+
+  navLinks.forEach((link) => {
+    link.addEventListener("click", () => {
+      navLinks.forEach((navLink) => navLink.classList.remove("active"));
+      link.classList.add("active");
+    });
+  });
+
+  const activeNavObserver = new IntersectionObserver(
+    (entries) => {
+      const visible = entries
+        .filter((entry) => entry.isIntersecting)
+        .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+
+      if (!visible) return;
+
+      const id = visible.target.getAttribute("id");
+      navLinks.forEach((link) => {
+        const isActive = link.getAttribute("href") === `#${id}`;
+        link.classList.toggle("active", isActive);
+      });
+    },
+    {
+      threshold: [0.25, 0.45, 0.7],
+      rootMargin: "-20% 0px -45% 0px"
+    }
+  );
+
+  sectionTargets.forEach((section) => activeNavObserver.observe(section));
 }
 
 function setFooterYear() {

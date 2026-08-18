@@ -57,6 +57,27 @@ body {
     var(--bg);
   overflow-x: hidden;
   transition: background 0.25s ease, color 0.25s ease;
+  animation: pageEnter 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+main {
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes pageEnter {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+section[id] {
+  scroll-margin-top: 88px;
 }
 
 body.theme-dark .panel,
@@ -68,9 +89,11 @@ body.theme-dark .about-grid .panel,
 body.theme-dark .split-grid .panel,
 body.theme-dark .contact-card,
 body.theme-dark .site-header {
-  background: linear-gradient(180deg, rgba(18, 24, 33, 0.96), rgba(14, 21, 29, 0.96)) !important;
+  background: linear-gradient(180deg, rgba(18, 24, 33, 0.82), rgba(10, 15, 22, 0.8)) !important;
   border-color: rgba(255, 255, 255, 0.08) !important;
-  box-shadow: var(--shadow);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.32) !important;
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
 }
 
 body.theme-dark .chip,
@@ -160,9 +183,11 @@ body.theme-dark .theme-toggle {
   justify-content: space-between;
   gap: 1rem;
   padding: 1rem clamp(1rem, 4vw, 3rem);
-  backdrop-filter: blur(14px);
-  background: rgba(246, 249, 252, 0.78);
+  background: rgba(246, 249, 252, 0.7);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
   border-bottom: 1px solid rgba(216, 228, 240, 0.72);
+  box-shadow: 0 12px 30px rgba(16, 35, 63, 0.06);
 }
 
 body.theme-dark .site-header {
@@ -194,9 +219,34 @@ body.theme-dark .site-header {
 }
 
 .site-nav a {
+  position: relative;
   color: var(--text);
   text-decoration: none;
   font-weight: 600;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.site-nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -0.35rem;
+  width: 0;
+  height: 2px;
+  border-radius: 99px;
+  background: linear-gradient(90deg, var(--primary), var(--accent));
+  transition: width 0.25s ease;
+}
+
+.site-nav a:hover,
+.site-nav a.active {
+  color: var(--text-strong);
+  transform: translateY(-1px);
+}
+
+.site-nav a:hover::after,
+.site-nav a.active::after {
+  width: 100%;
 }
 
 .theme-toggle {
@@ -229,9 +279,22 @@ body.theme-dark .theme-toggle {
 
 .panel {
   border-radius: var(--radius);
-  background: linear-gradient(180deg, var(--surface) 0%, var(--surface-soft) 100%);
-  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.62);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.32);
   box-shadow: var(--shadow);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+}
+
+.panel:hover,
+.metric-card:hover,
+.skill-card:hover,
+.timeline-item:hover,
+.project-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 20px 36px rgba(16, 35, 63, 0.14);
+  border-color: rgba(11, 143, 217, 0.18);
 }
 
 .hero {
@@ -620,13 +683,22 @@ h3 {
 
 .reveal {
   opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.48s ease, transform 0.48s ease;
+  transform: translate3d(0, 24px, 0) scale(0.985);
+  transition: opacity 0.52s ease, transform 0.52s ease;
 }
 
 .reveal.in-view {
   opacity: 1;
-  transform: translateY(0);
+  transform: translate3d(0, 0, 0) scale(1);
+}
+
+.metric-card,
+.skill-card,
+.timeline-item,
+.project-card,
+.contact-card,
+.panel {
+  will-change: transform, box-shadow;
 }
 
 @keyframes float {
