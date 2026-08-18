@@ -458,24 +458,22 @@ function setupRevealObserver() {
     });
   });
 
-  const activeObserver = new IntersectionObserver(
-    (entries) => {
-      const visible = entries
-        .filter((entry) => entry.isIntersecting)
-        .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+  const updateActiveNavOnScroll = () => {
+    let activeId = "about";
+    const viewTop = window.innerHeight * 0.28;
 
-      if (visible) {
-        setActiveNavLink(visible.target.getAttribute("id"));
+    sectionTargets.forEach((section) => {
+      const rect = section.getBoundingClientRect();
+      if (rect.top <= viewTop && rect.bottom >= viewTop) {
+        activeId = section.getAttribute("id");
       }
-    },
-    {
-      threshold: [0.2, 0.35, 0.6],
-      rootMargin: "-15% 0px -45% 0px"
-    }
-  );
+    });
 
-  sectionTargets.forEach((section) => activeObserver.observe(section));
-  setActiveNavLink("about");
+    setActiveNavLink(activeId);
+  };
+
+  updateActiveNavOnScroll();
+  window.addEventListener("scroll", updateActiveNavOnScroll, { passive: true });
 }
 
 function setFooterYear() {
