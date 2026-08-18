@@ -145,7 +145,13 @@ function renderProfile(profile) {
   el.leetcodeLink.href = profile.social.leetcode;
   el.hackerrankLink.href = profile.social.hackerrank;
 
-  el.contactMailLink.href = `mailto:${profile.email}?subject=Opportunity%20for%20${encodeURIComponent(profile.name)}`;
+  const gmailSubject = encodeURIComponent(`Opportunity for ${profile.name}`);
+  const gmailTo = encodeURIComponent(profile.email);
+  const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${gmailTo}&su=${gmailSubject}`;
+
+  el.contactMailLink.href = gmailUrl;
+  el.contactMailLink.target = "_blank";
+  el.contactMailLink.rel = "noopener noreferrer";
   el.contactLinkedinLink.href = profile.social.linkedin;
 }
 
