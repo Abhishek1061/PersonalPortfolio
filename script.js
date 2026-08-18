@@ -2,6 +2,28 @@ const PROFILE_URL = "./data/profile.json";
 const GITHUB_USER = "Abhishek1061";
 const GITHUB_PROFILE_URL = `https://api.github.com/users/${GITHUB_USER}`;
 const GITHUB_REPOS_URL = `https://api.github.com/users/${GITHUB_USER}/repos?per_page=100&sort=updated`;
+const EXCLUDED_REPOS = new Set([
+  "free-for-dev",
+  "git-demo",
+  "git-tutorial",
+  "localrepo",
+  "test",
+  "gitProject",
+  "first-contributions",
+  "markdown-here",
+  "typed.js",
+  "javascript-course",
+  "Angular_Notes",
+  "AngularJson",
+  "Java_Practice",
+  "HomePage_MiniProject",
+  "AddToCart_Mini_Project",
+  "Temperature_Converter_Angular_Project",
+  "excursion",
+  "personalnest-website",
+  "My_Portfolio",
+  "Portfolio"
+]);
 
 const state = {
   profile: null,
@@ -22,6 +44,7 @@ const el = {
   githubLink: document.querySelector("#github-link"),
   linkedinLink: document.querySelector("#linkedin-link"),
   leetcodeLink: document.querySelector("#leetcode-link"),
+  hackerrankLink: document.querySelector("#hackerrank-link"),
   contactMailLink: document.querySelector("#contact-mail-link"),
   contactLinkedinLink: document.querySelector("#contact-linkedin-link"),
   avatar: document.querySelector("#profile-avatar"),
@@ -73,7 +96,9 @@ async function loadGithubData() {
       fetchJson(GITHUB_REPOS_URL)
     ]);
 
-    state.repos = githubRepos.filter((repo) => !repo.fork);
+    state.repos = githubRepos.filter(
+      (repo) => !repo.fork && !EXCLUDED_REPOS.has(repo.name)
+    );
     applyGithubProfile(githubProfile);
     renderGithubMetrics(githubProfile);
     renderRepoFilters(state.repos);
@@ -118,6 +143,7 @@ function renderProfile(profile) {
   el.githubLink.href = profile.social.github;
   el.linkedinLink.href = profile.social.linkedin;
   el.leetcodeLink.href = profile.social.leetcode;
+  el.hackerrankLink.href = profile.social.hackerrank;
 
   el.contactMailLink.href = `mailto:${profile.email}?subject=Opportunity%20for%20${encodeURIComponent(profile.name)}`;
   el.contactLinkedinLink.href = profile.social.linkedin;
@@ -213,14 +239,26 @@ function renderFeaturedProjects(projects) {
   el.featuredProjects.innerHTML = projects
     .map((project) => {
       const tags = project.tech.map((item) => `<span class="chip">${escapeHtml(item)}</span>`).join("");
+      const projectType = project.name.includes("Analytics")
+        ? "Data & Streaming"
+        : project.name.includes("Bank")
+          ? "FinTech"
+          : project.name.includes("Event")
+            ? "Business Workflow"
+            : "Full-Stack";
+
       return `
-        <article class="project-card panel">
+        <article class="project-card panel premium-card">
+          <div class="project-head">
+            <span class="project-type">${escapeHtml(projectType)}</span>
+            <a class="project-link" href="${project.repo}" target="_blank" rel="noreferrer">Repo</a>
+          </div>
           <h3>${escapeHtml(project.name)}</h3>
-          <p>${escapeHtml(project.description)}</p>
+          <p class="project-description">${escapeHtml(project.description)}</p>
           <div class="chip-list">${tags}</div>
           <div class="project-meta">
             <span>${escapeHtml(project.period)}</span>
-            <a class="project-link" href="${project.repo}" target="_blank" rel="noreferrer">Repository</a>
+            <span class="impact-pill">Impact-driven</span>
           </div>
         </article>
       `;
@@ -276,33 +314,41 @@ function renderLiveProjects() {
     return repo.language === state.activeLanguage;
   });
 
-  const top = filtered.slice(0, 9);
-
-  if (top.length === 0) {
+  if (filtered.length === 0) {
     el.liveProjects.innerHTML = "";
     el.repoStatus.textContent = "No repositories match this language filter.";
     return;
   }
 
-  el.liveProjects.innerHTML = top
+  el.liveProjects.innerHTML = filtered
     .map((repo) => {
       const description = repo.description || "Repository available on GitHub.";
       const language = repo.language || "Mixed";
       const updated = formatDate(repo.updated_at);
+      const repoType = ["Java", "Spring Boot", "Kotlin", "Python"].includes(language)
+        ? "Backend / API"
+        : language === "JavaScript" || language === "HTML"
+          ? "Frontend / UI"
+          : "Learning / Practice";
+
       return `
-        <article class="project-card panel">
+        <article class="project-card panel premium-card">
+          <div class="project-head">
+            <span class="project-type">${escapeHtml(repoType)}</span>
+            <a class="project-link" href="${repo.html_url}" target="_blank" rel="noreferrer">Open</a>
+          </div>
           <h3>${escapeHtml(repo.name.replaceAll("-", " "))}</h3>
-          <p>${escapeHtml(description)}</p>
+          <p class="project-description">${escapeHtml(description)}</p>
           <div class="project-meta">
             <span>${escapeHtml(language)} | Updated ${escapeHtml(updated)}</span>
-            <a class="project-link" href="${repo.html_url}" target="_blank" rel="noreferrer">Open</a>
+            <span class="impact-pill">GitHub</span>
           </div>
         </article>
       `;
     })
     .join("");
 
-  el.repoStatus.textContent = `Showing ${top.length} repositories from GitHub profile: ${GITHUB_USER}.`;
+  el.repoStatus.textContent = `Showing ${filtered.length} repositories from GitHub profile: ${GITHUB_USER}.`;
 }
 
 function renderCertifications(certifications) {

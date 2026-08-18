@@ -1,17 +1,26 @@
 {
   "name": "Abhishek Bhaskar Kadam",
-  "headline": "Java Full Stack Developer | Software Engineer",
-  "tagline": "Java full stack engineer focused on scalable BFS applications, microservices migration, and production reliability.",
-  "location": "Pune, India",
+  "headline": "Java Full Stack Developer | Spring Boot | Microservices | Angular",
+  "tagline": "Java full stack engineer focused on scalable BFS applications, microservices transformation, backend reliability, and user-centric product delivery.",
+  "location": "Pune, Maharashtra, India",
   "phone": "+91 8788276933",
   "email": "abhishekkadam1061@gmail.com",
   "resumeFile": "assets/ABHISHEK_BHASKAR_KADAM_RESUME.docx",
+  "portfolio": "https://abhishek1061.github.io/PeronalPortfolio/",
   "social": {
     "github": "https://github.com/Abhishek1061",
     "linkedin": "https://www.linkedin.com/in/abhishekkadam1061/",
-    "leetcode": "https://leetcode.com/abhishekkadam1061/"
+    "leetcode": "https://leetcode.com/abhishekkadam1061/",
+    "hackerrank": "https://www.hackerrank.com/profile/abhishekkadam101"
   },
-  "summary": "Java Full Stack Developer with 2+ years of experience designing and supporting enterprise-grade software using Java, Spring Boot, Spring MVC, REST APIs, microservices, Apache Kafka, and Angular. Hands-on across full SDLC: API design, refactoring, testing, CI/CD, container deployments, and production support in Agile teams.",
+  "summary": "Java Full Stack Developer with 2+ years of experience designing and supporting enterprise-grade applications across backend services, microservices migration, API development, and Angular-based UI work. Experienced in building resilient Spring Boot systems, working with Kafka-based integrations, improving code quality, performing production debugging, and supporting deployment pipelines in Agile environments.",
+  "highlights": [
+    "Designed and maintained REST APIs and backend services using Java and Spring Boot for scalable enterprise systems.",
+    "Worked on monolith-to-microservices migration and event-driven communication with Apache Kafka.",
+    "Refactored legacy Java modules, removed 2400+ lines of obsolete code, and improved maintainability and release stability.",
+    "Migrated legacy JavaScript flows to Angular and improved frontend responsiveness by 25%.",
+    "Worked across the full SDLC with Jenkins, Docker, Kubernetes, OpenShift, JUnit, SonarQube, and production observability tools."
+  ],
   "experience": [
     {
       "title": "Software Engineer",
@@ -20,24 +29,24 @@
       "startDate": "2024-06-12",
       "endDate": "Present",
       "bullets": [
-        "Built and maintained REST APIs using Java, Spring Boot, and Spring MVC for scalable enterprise services.",
-        "Contributed to monolith-to-microservices migration and executed event validation and regression checks.",
-        "Developed Apache Kafka producers for async communication with downstream systems.",
-        "Migrated legacy UI modules from JavaScript to Angular and improved UI performance by 25%.",
-        "Refactored 25+ Java classes and removed 2400+ lines of deprecated code without production impact.",
-        "Resolved production issues using ELK Stack, AppDynamics, Autosys, and MySQL across DEV, UAT, and PROD.",
-        "Improved quality through SonarQube fixes plus unit and integration test implementation.",
+        "Built and maintained REST APIs using Java, Spring Boot, and Spring MVC to support scalable BFS services.",
+        "Contributed to monolith-to-microservices migration and validated event flows, regression coverage, and production readiness.",
+        "Developed Apache Kafka producers for asynchronous communication with downstream systems and improved service decoupling.",
+        "Migrated legacy UI modules from JavaScript to Angular and improved application responsiveness by 25%.",
+        "Refactored 25+ Java classes and removed 2400+ lines of deprecated code without affecting production stability.",
+        "Resolved production issues by analyzing logs and metrics using ELK Stack, AppDynamics, Autosys, and MySQL across DEV, UAT, and PROD.",
+        "Improved code quality through SonarQube remediation, JUnit coverage, and integration tests.",
         "Managed CI/CD and deployments via Jenkins, Docker, UrbanCode, Lightspeed, OpenShift, and Kubernetes.",
-        "Applied OOP design patterns and SOLID principles for maintainable service-layer architecture."
+        "Applied OOP design patterns and SOLID principles to keep service-layer architecture clean and maintainable."
       ]
     }
   ],
   "achievements": [
-    "Migrated monolith components toward microservices architecture for better scalability and release speed.",
+    "Migrated monolith components toward microservices architecture to improve scalability and release speed.",
     "Implemented Kafka producers that reduced integration latency and improved system responsiveness.",
-    "Drove large refactoring initiative by cleaning 25+ classes and removing 2400+ obsolete lines.",
-    "Boosted frontend responsiveness by 25% by moving legacy JavaScript screens to Angular.",
-    "Strengthened production stability through root-cause debugging and observability-driven fixes."
+    "Led a major refactoring effort by cleaning 25+ classes and removing 2400+ obsolete lines.",
+    "Improved frontend responsiveness by 25% by replacing legacy JavaScript screens with Angular components.",
+    "Strengthened production stability through root-cause debugging and observability-driven service support."
   ],
   "skills": {
     "Programming": [
@@ -155,6 +164,11 @@
       "title": "Junior Java Full Stack Development Training",
       "issuer": "Generation India",
       "date": "April 2024"
+    },
+    {
+      "title": "GitHub Profile: Pull Shark",
+      "issuer": "GitHub",
+      "date": "Ongoing"
     }
   ],
   "education": [
