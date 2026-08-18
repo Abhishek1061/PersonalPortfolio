@@ -442,34 +442,40 @@ function setupRevealObserver() {
   const navLinks = document.querySelectorAll(".site-nav a");
   const sectionTargets = document.querySelectorAll("main section[id]");
 
+  const setActiveNavLink = (id) => {
+    navLinks.forEach((link) => {
+      const isActive = link.getAttribute("href") === `#${id}`;
+      link.classList.toggle("active", isActive);
+    });
+  };
+
   navLinks.forEach((link) => {
     link.addEventListener("click", () => {
-      navLinks.forEach((navLink) => navLink.classList.remove("active"));
-      link.classList.add("active");
+      const targetId = link.getAttribute("href")?.replace("#", "");
+      if (targetId) {
+        setActiveNavLink(targetId);
+      }
     });
   });
 
-  const activeNavObserver = new IntersectionObserver(
+  const activeObserver = new IntersectionObserver(
     (entries) => {
       const visible = entries
         .filter((entry) => entry.isIntersecting)
         .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
 
-      if (!visible) return;
-
-      const id = visible.target.getAttribute("id");
-      navLinks.forEach((link) => {
-        const isActive = link.getAttribute("href") === `#${id}`;
-        link.classList.toggle("active", isActive);
-      });
+      if (visible) {
+        setActiveNavLink(visible.target.getAttribute("id"));
+      }
     },
     {
-      threshold: [0.25, 0.45, 0.7],
-      rootMargin: "-20% 0px -45% 0px"
+      threshold: [0.2, 0.35, 0.6],
+      rootMargin: "-15% 0px -45% 0px"
     }
   );
 
-  sectionTargets.forEach((section) => activeNavObserver.observe(section));
+  sectionTargets.forEach((section) => activeObserver.observe(section));
+  setActiveNavLink("about");
 }
 
 function setFooterYear() {
